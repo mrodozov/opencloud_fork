@@ -17,10 +17,8 @@ include ../.make/docs.mk
 
 .PHONY: dev-docker
 dev-docker:
-	docker build -f docker/Dockerfile.multiarch -t opencloudeu/opencloud:dev ..
-
-dev-docker-with-workspace:
-	docker build -f docker/Dockerfile.multiarch -t opencloudeu/opencloud:dev --build-arg SRCDIR=opencloud ../..
+	$(MAKE) --no-print-directory release-linux-docker-$(GOARCH)
+	docker build -f docker/Dockerfile.linux.$(GOARCH) -t opencloudeu/opencloud:opencloud-devel .
 
 .PHONY: dev-docker-multiarch
 dev-docker-multiarch:
