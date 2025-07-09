@@ -14,14 +14,14 @@
 # is a lot faster than the build steps below.
 
 
-FROM owncloudci/nodejs:18 AS generate
+FROM owncloudci/nodejs:arm32v7 AS generate
 
 COPY ./ /opencloud/
 
 WORKDIR /opencloud/opencloud
 RUN make node-generate-prod
 
-FROM golang:1.24-alpine AS build
+FROM golang:1.19-arm32v7 AS build
 RUN apk add bash make git curl gcc musl-dev libc-dev binutils-gold inotify-tools vips-dev
 
 COPY --from=generate /opencloud /opencloud
@@ -29,7 +29,7 @@ COPY --from=generate /opencloud /opencloud
 WORKDIR /opencloud/opencloud
 RUN make go-generate build ENABLE_VIPS=true
 
-FROM alpine:3.20
+FROM alpine:3.21.3
 
 RUN apk add --no-cache attr ca-certificates curl mailcap tree vips && \
 	echo 'hosts: files dns' >| /etc/nsswitch.conf
