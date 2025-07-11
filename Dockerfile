@@ -29,7 +29,7 @@ COPY --from=generate /opencloud /opencloud
 WORKDIR /opencloud/opencloud
 RUN make go-generate build ENABLE_VIPS=true
 
-FROM arm32v7/alpine:3.21.3
+FROM arm32v7/alpine:latest
 
 RUN apk add --no-cache attr ca-certificates curl mailcap tree vips && \
 	echo 'hosts: files dns' >| /etc/nsswitch.conf
