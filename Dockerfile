@@ -30,7 +30,7 @@ WORKDIR /opencloud/opencloud
 RUN make go-generate build ENABLE_VIPS=true
 
 
-FROM alpine:3.24
+FROM arm32v7/alpine:3.21.3
 
 
 RUN apk add --no-cache attr ca-certificates curl mailcap tree vips && \
