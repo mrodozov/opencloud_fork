@@ -51,6 +51,18 @@ opencloud/bin/opencloud init && opencloud/bin/opencloud server
 ```
 This creates a server configuration (by default in `$HOME/.opencloud`) and starts the server.
 
+To build a dev container with the binary and run it:
+```bash
+make -C opencloud dev-docker
+# builds the container for specific architecture
+mkdir -p $HOME/opencloud/opencloud-config $HOME/opencloud/opencloud-data
+sudo chown -Rfv 1000:1000 $HOME/opencloud/opencloud-*
+docker run --rm -it -v $HOME/opencloud/opencloud-config:/etc/opencloud -v $HOME/opencloud/opencloud-data:/var/lib/opencloud-e IDM_ADMIN_PASSWORD=admin opencloudeu/opencloud:opencloud-devel init
+# type 'yes' for the insecured version just to check it's running
+# get the OC_URL from ifconfig, don't use localhost as localhost only works when accessing the server from the same machine and not another
+docker run --name opencloud --rm -d -p 9200:9200 -v $HOME/opencloud/opencloud-config:/etc/opencloud -v $HOME/opencloud/opencloud-data:/var/lib/opencloud -e OC_INSECURE=true -e PROXY_HTTP_ADDR=0.0.0.0:9200 -e OC_URL=https://192.x.x.x:9200 opencloudeu/opencloud:opencloud-devel
+```
+
 For more setup- and installation options consult the [Development Documentation](https://docs.opencloud.eu/).
 
 ## Technology
