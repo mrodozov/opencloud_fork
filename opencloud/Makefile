@@ -19,7 +19,7 @@ include ../.make/docs.mk
 dev-docker:
 
 	$(MAKE) --no-print-directory release-linux-docker-$(GOARCH)
-	docker build -f docker/Dockerfile.linux.$(GOARCH) -t opencloudeu/opencloud:opencloud-devel .
+	docker build -f docker/Dockerfile.linux.$(GOARCH) -t opencloudeu/opencloud:opencloud_dev ..
 
 .PHONY: dev-docker-multiarch
 dev-docker-multiarch:
