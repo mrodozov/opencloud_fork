@@ -60,4 +60,10 @@ var _ = Describe("Validate", func() {
 		})
 	})
 
+	It("rejcts a setup with an invalid identity backend", func() {
+		cfg.Identity.Backend = "invalid-backend"
+		err := parser.Validate(cfg)
+		Expect(err).To(HaveOccurred())
+		Expect(err).To(MatchError(ContainSubstring("is not a valid identity backend")))
+	})
 })

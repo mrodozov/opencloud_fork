@@ -3,6 +3,7 @@ package parser
 import (
 	"errors"
 	"fmt"
+	"slices"
 
 	"github.com/go-ldap/ldap/v3"
 
@@ -40,6 +41,10 @@ func ParseConfig(cfg *config.Config) error {
 func Validate(cfg *config.Config) error {
 	if cfg.TokenManager.JWTSecret == "" {
 		return shared.MissingJWTTokenError(cfg.Service.Name)
+	}
+
+	if !slices.Contains([]string{"ldap", "cs3"}, cfg.Identity.Backend) {
+		return fmt.Errorf("'%s' is not a valid identity backend	for the 'graph' service", cfg.Identity.Backend)
 	}
 
 	// ensure that the "cs3" identity backend is used in multi-tenant setups
