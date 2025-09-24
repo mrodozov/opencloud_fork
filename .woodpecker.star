@@ -318,6 +318,7 @@ config = {
                 "USE_PREPARED_LDAP_USERS": True,
             },
             "extraServerEnvironment": {
+                "OC_MULTI_TENANT_ENABLED": True,
                 "OC_LDAP_USER_SCHEMA_TENANT_ID": "departmentNumber",
                 "OC_LDAP_URI": "ldaps://ldap-server:1636",
                 "OC_LDAP_INSECURE": True,

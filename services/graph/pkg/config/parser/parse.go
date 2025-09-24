@@ -42,6 +42,10 @@ func Validate(cfg *config.Config) error {
 		return shared.MissingJWTTokenError(cfg.Service.Name)
 	}
 
+	// ensure that the "cs3" identity backend is used in multi-tenant setups
+	if cfg.Commons.MultiTenantEnabled && cfg.Identity.Backend != "cs3" {
+		return fmt.Errorf("Multi-tenant support is enabled. The identity backend must be set to 'cs3' for the 'graph' service.")
+	}
 	if cfg.Identity.Backend == "ldap" {
 		if err := validateLDAPSettings(cfg); err != nil {
 			return err
