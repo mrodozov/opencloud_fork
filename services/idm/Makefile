@@ -1,6 +1,6 @@
 SHELL := bash
 NAME := idm
-TAGS := disable_crypt
+TAGS :=
 
 ifneq (, $(shell command -v go 2> /dev/null)) # suppress `command not found warnings` for non go targets in CI
 include ../../.bingo/Variables.mk
