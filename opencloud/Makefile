@@ -1,6 +1,6 @@
 SHELL := bash
 NAME := opencloud
-TAGS := disable_crypt
+TAGS :=
 GOARCH := $(shell go env GOARCH)
 CONFIG_DOCS_BASE_PATH := ../docs
 ifdef ENABLE_VIPS
@@ -19,7 +19,7 @@ include ../.make/docs.mk
 dev-docker:
 
 	$(MAKE) --no-print-directory release-linux-docker-$(GOARCH)
-	docker build -f docker/Dockerfile.linux.$(GOARCH) -t opencloudeu/opencloud:opencloud_dev_340 .
+	docker build -f docker/Dockerfile.linux.$(GOARCH) -t opencloudeu/opencloud:opencloud_release_crypt_350 .
 
 .PHONY: dev-docker-multiarch
 dev-docker-multiarch:
