@@ -64,6 +64,9 @@ Use the existing Education API of the Graph Service.
 * Allows integration with existing (de)provisioning systems
 * hopefully keeps the implementation effort low
 
+Note: For now this means that the auto-provisioning feature will not be available for
+multi-tenant setups. We might want to revisit this in the future.
+
 ### Implementation Steps
 
 * re-vive the existing Education API implementation and run it as a separate service
