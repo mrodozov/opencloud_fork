@@ -50,7 +50,7 @@ func StorageSystemFromStruct(cfg *config.Config) map[string]interface{} {
 									"id": map[string]interface{}{
 										"opaqueId": cfg.SystemUserID,
 										"idp":      "internal",
-										"type":     userpb.UserType_USER_TYPE_PRIMARY,
+										"type":     userpb.UserType_USER_TYPE_SERVICE,
 									},
 									"username":     "serviceuser",
 									"display_name": "System User",
