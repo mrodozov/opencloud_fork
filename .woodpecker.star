@@ -334,6 +334,7 @@ config = {
                 "GRAPH_LDAP_SERVER_UUID": True,
                 "GRAPH_LDAP_GROUP_CREATE_BASE_DN": "ou=custom,ou=groups,dc=opencloud,dc=eu",
                 "GRAPH_LDAP_REFINT_ENABLED": True,
+                "GROUPS_DRIVER": "null",
                 "FRONTEND_READONLY_USER_ATTRIBUTES": "user.onPremisesSamAccountName,user.displayName,user.mail,user.passwordProfile,user.accountEnabled,user.appRoleAssignments",
                 "OC_LDAP_SERVER_WRITE_ENABLED": False,
                 "OC_EXCLUDE_RUN_SERVICES": "idm",
