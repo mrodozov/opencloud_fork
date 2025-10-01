@@ -2,7 +2,7 @@
 title: "Use the graph education API for multi-tenant user provisioning"
 ---
 
-* Status: proposed
+* Status: approved
 * Deciders: [@micbar, @butonic, @rhafer]
 * Date: 2025-09-23
 
