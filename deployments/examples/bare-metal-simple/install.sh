@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+
 #
 # Quick and dirty quickstart script to fire up a local OpenCloud instance.
 # Klaas Freitag <k.freitag@opencloud.eu>
