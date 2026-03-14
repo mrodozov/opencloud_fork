@@ -147,6 +147,10 @@ func Server(cfg *config.Config) *cobra.Command {
 				if extractor, err = content.NewTikaExtractor(selector, logger, cfg); err != nil {
 					return err
 				}
+			case "vision":
+				if extractor, err = content.NewVisionExtractor(selector, logger, cfg); err != nil {
+					return err
+				}
 			default:
 				return fmt.Errorf("unknown search extractor: %s", cfg.Extractor.Type)
 			}
