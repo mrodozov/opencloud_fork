@@ -90,7 +90,6 @@ import "C"
 
 import (
 	"fmt"
-	"unsafe"
 )
 
 // Context wraps an rknn_context handle and is not safe for concurrent use.
@@ -105,11 +104,13 @@ func Init(modelData []byte) (*Context, error) {
 	if len(modelData) == 0 {
 		return nil, fmt.Errorf("rknn: empty model data")
 	}
-
+	cModel := C.CBytes(modelData)
+        defer C.free(cModel)
+	
 	var ctx C.rknn_context
 	ret := C.rknn_init(
 		&ctx,
-		unsafe.Pointer(&modelData[0]),
+		cModel,
 		C.uint32_t(len(modelData)),
 		0,
 		nil,
@@ -132,9 +133,12 @@ func (c *Context) RunUint8(imgData []byte, inputW, inputH int) ([]float32, error
 	}
 
 	// --- set input ---
+	cBuf := C.CBytes(imgData)
+        defer C.free(cBuf)
+
 	input := C.rknn_input{
 		index:        0,
-		buf:          unsafe.Pointer(&imgData[0]),
+		buf:          cBuf,
 		size:         C.uint32_t(len(imgData)),
 		pass_through: 0,                    // let RKNN apply normalisation configured at conversion time
 		_type:        C.RKNN_TENSOR_UINT8,

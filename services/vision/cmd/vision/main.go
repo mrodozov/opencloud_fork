@@ -23,9 +23,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/opencloud-eu/opencloud/services/vision/pkg/config"
-	"github.com/opencloud-eu/opencloud/services/vision/pkg/inference"
-	"github.com/opencloud-eu/opencloud/services/vision/pkg/server"
+	"github.com/mrodozov/opencloud_fork/services/vision/pkg/config"
+	"github.com/mrodozov/opencloud_fork/services/vision/pkg/inference"
+	"github.com/mrodozov/opencloud_fork/services/vision/pkg/server"
 )
 
 func main() {

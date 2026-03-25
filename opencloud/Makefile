@@ -17,9 +17,8 @@ include ../.make/docs.mk
 
 .PHONY: dev-docker
 dev-docker:
-
 	$(MAKE) --no-print-directory release-linux-docker-$(GOARCH)
-	docker build -f docker/Dockerfile.linux.$(GOARCH) -t opencloudeu/opencloud:opencloud_release_crypt_510 .
+	docker build -f docker/Dockerfile.linux.$(GOARCH) -t opencloudeu/opencloud:opencloud_release_crypt_520 .
 
 .PHONY: dev-docker-multiarch
 dev-docker-multiarch:
