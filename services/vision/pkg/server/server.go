@@ -15,16 +15,16 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/opencloud-eu/opencloud/services/vision/pkg/inference"
-	"github.com/opencloud-eu/opencloud/services/vision/pkg/video"
+	"github.com/mrodozov/opencloud_fork/services/vision/pkg/inference"
+	"github.com/mrodozov/opencloud_fork/services/vision/pkg/video"
 )
 
 // AnalyseResponse is the JSON body returned for both image and video requests.
 type AnalyseResponse struct {
-	Description   string                  `json:"description"`
-	Tags          []string                `json:"tags"`
-	Predictions   []inference.Prediction  `json:"predictions"`
-	KeyframeCount int                     `json:"keyframe_count,omitempty"`
+	Description   string                 `json:"description"`
+	Tags          []string               `json:"tags"`
+	Predictions   []inference.Prediction `json:"predictions"`
+	KeyframeCount int                    `json:"keyframe_count,omitempty"`
 }
 
 // ErrorResponse is returned on failure.
@@ -34,10 +34,10 @@ type ErrorResponse struct {
 
 // Server holds the HTTP mux and the loaded model.
 type Server struct {
-	model      *inference.Model
-	maxBodyMB  int64
-	maxFrames  int
-	mux        *http.ServeMux
+	model     *inference.Model
+	maxBodyMB int64
+	maxFrames int
+	mux       *http.ServeMux
 }
 
 // New creates a Server wired to the given model.
