@@ -15,8 +15,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/mrodozov/opencloud_fork/services/vision/pkg/inference"
-	"github.com/mrodozov/opencloud_fork/services/vision/pkg/video"
+	"github.com/opencloud-eu/opencloud/services/vision/pkg/inference"
+	"github.com/opencloud-eu/opencloud/services/vision/pkg/video"
 )
 
 // AnalyseResponse is the JSON body returned for both image and video requests.
