@@ -5,15 +5,16 @@
 # 
 # Translators:
 # eric_G <junk.eg@free.fr>, 2025
+# Benoît Aguesse, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: EMAIL\n"
-"POT-Creation-Date: 2026-03-11 00:08+0000\n"
+"POT-Creation-Date: 2026-04-01 00:05+0000\n"
 "PO-Revision-Date: 2025-01-27 10:17+0000\n"
-"Last-Translator: eric_G <junk.eg@free.fr>, 2025\n"
+"Last-Translator: Benoît Aguesse, 2026\n"
 "Language-Team: French (https://app.transifex.com/opencloud-eu/teams/204053/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +47,7 @@ msgstr "Peut gérer"
 #. UnifiedRole EditorLite, Role DisplayName (resolves directly)
 #: pkg/unifiedrole/roles.go:152
 msgid "Can upload"
-msgstr "Peut téléchargé"
+msgstr "Peut téléverser"
 
 #. UnifiedRole Viewer, Role DisplayName (resolves directly)
 #. UnifiedRole Viewer, Role DisplayName (resolves directly)
@@ -54,12 +55,12 @@ msgstr "Peut téléchargé"
 #: pkg/unifiedrole/roles.go:98 pkg/unifiedrole/roles.go:104
 #: pkg/unifiedrole/roles.go:110
 msgid "Can view"
-msgstr "Peut consulté"
+msgstr "Peut consulter"
 
 #. UnifiedRole SecureViewer, Role DisplayName (resolves directly)
 #: pkg/unifiedrole/roles.go:164
 msgid "Can view (secure)"
-msgstr "Peut consulté (sécurisé)"
+msgstr "Peut consulter (sécurisé)"
 
 #. UnifiedRole FullDenial, Role DisplayName (resolves directly)
 #: pkg/unifiedrole/roles.go:170
@@ -80,60 +81,60 @@ msgstr "Vous pouvez ajouter une description pour cet espace."
 #. UnifiedRole SpaceViewer, Role Description (resolves directly)
 #: pkg/unifiedrole/roles.go:95 pkg/unifiedrole/roles.go:107
 msgid "View and download."
-msgstr "Afficher et télécharger."
+msgstr "Consulter et télécharger."
 
 #. UnifiedRole SecureViewer, Role Description (resolves directly)
 #: pkg/unifiedrole/roles.go:161
 msgid "View only documents, images and PDFs. Watermarks will be applied."
 msgstr ""
-"Afficher uniquement les documents, les images et les PDF. Des filigranes "
+"Consulter uniquement les documents, les images et les PDF. Des filigranes "
 "seront appliqués."
 
 #. UnifiedRole FileEditor, Role Description (resolves directly)
 #: pkg/unifiedrole/roles.go:137
 msgid "View, download and edit."
-msgstr "Afficher, télécharger et modifier."
+msgstr "Consulter, télécharger et modifier."
 
 #. UnifiedRole ViewerListGrants, Role Description (resolves directly)
 #: pkg/unifiedrole/roles.go:101
 msgid "View, download and show all invited people."
-msgstr "Afficher, télécharger et montrer toutes les personnes invitées."
+msgstr "Consulter, télécharger et montrer toutes les personnes invitées."
 
 #. UnifiedRole EditorLite, Role Description (resolves directly)
 #: pkg/unifiedrole/roles.go:149
 msgid "View, download and upload."
-msgstr "Afficher, télécharger et téléverser."
+msgstr "Consulter, télécharger et téléverser."
 
 #. UnifiedRole FileEditorListGrants, Role Description (resolves directly)
 #: pkg/unifiedrole/roles.go:143
 msgid "View, download, edit and show all invited people."
 msgstr ""
-"Afficher, télécharger, modifier et montrer toutes les personnes invitées."
+"Consulter, télécharger, modifier et montrer toutes les personnes invitées."
 
 #. UnifiedRole Editor, Role Description (resolves directly)
 #. UnifiedRole SpaseEditorWithoutVersions, Role Description (resolves
 #. directly)
 #: pkg/unifiedrole/roles.go:113 pkg/unifiedrole/roles.go:131
 msgid "View, download, upload, edit, add and delete."
-msgstr "Afficher, télécharger, téléverser, modifier, ajouter et supprimer."
+msgstr "Consulter, télécharger, téléverser, modifier, ajouter et supprimer."
 
 #. UnifiedRole Manager, Role Description (resolves directly)
 #: pkg/unifiedrole/roles.go:155
 msgid "View, download, upload, edit, add, delete and manage members."
 msgstr ""
-"Afficher, télécharger, téléverser, modifier, ajouter, supprimer et gérer les"
-" membres."
+"Consulter, télécharger, téléverser, modifier, ajouter, supprimer et gérer "
+"les membres."
 
 #. UnifiedRoleListGrants Editor, Role Description (resolves directly)
 #: pkg/unifiedrole/roles.go:119
 msgid "View, download, upload, edit, add, delete and show all invited people."
 msgstr ""
-"Afficher, télécharger, téléverser, modifier, ajouter, supprimer et montrer "
+"Consulter, télécharger, téléverser, modifier, ajouter, supprimer et montrer "
 "toutes les personnes invitées."
 
 #. UnifiedRole SpaseEditor, Role Description (resolves directly)
 #: pkg/unifiedrole/roles.go:125
 msgid "View, download, upload, edit, add, delete including the history."
 msgstr ""
-"Afficher, télécharger, téléverser, modifier, ajouter, supprimer, y compris "
+"Consulter, télécharger, téléverser, modifier, ajouter, supprimer, y compris "
 "l'historique."

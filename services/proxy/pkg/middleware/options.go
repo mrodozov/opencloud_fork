@@ -49,6 +49,9 @@ type Options struct {
 	UserOIDCClaim string
 	// UserCS3Claim to use when looking up a user in the CS3 API
 	UserCS3Claim string
+	// TenantOIDCClaim is a JMESPath expression to extract the tenant ID from the OIDC claims.
+	// When set, the extracted value is verified against the tenant ID on the resolved user.
+	TenantOIDCClaim string
 	// AutoprovisionAccounts when an accountResolver does not exist.
 	AutoprovisionAccounts bool
 	// EnableBasicAuth to allow basic auth
@@ -73,7 +76,12 @@ type Options struct {
 	SkipUserInfo bool
 	// MultiTenantEnabled causes the account resolve middleware to reject users that don't have a tenant id assigned
 	MultiTenantEnabled bool
-	EventsPublisher    events.Publisher
+	// TenantIDMappingEnabled causes the account resolver to resolve the internal tenant ID from the external
+	// tenant ID in the OIDC claims via the gateway's TenantAPI before comparing it to the user's stored tenant ID.
+	TenantIDMappingEnabled bool
+	// ServiceAccount holds credentials used to authenticate internal service calls (e.g. TenantAPI lookups).
+	ServiceAccount         config.ServiceAccount
+	EventsPublisher        events.Publisher
 }
 
 // newOptions initializes the available default options.
@@ -171,6 +179,13 @@ func UserCS3Claim(val string) Option {
 	}
 }
 
+// TenantOIDCClaim provides a function to set the TenantOIDCClaim config
+func TenantOIDCClaim(val string) Option {
+	return func(o *Options) {
+		o.TenantOIDCClaim = val
+	}
+}
+
 // AutoprovisionAccounts provides a function to set the AutoprovisionAccounts config
 func AutoprovisionAccounts(val bool) Option {
 	return func(o *Options) {
@@ -245,6 +260,22 @@ func SkipUserInfo(val bool) Option {
 func MultiTenantEnabled(val bool) Option {
 	return func(o *Options) {
 		o.MultiTenantEnabled = val
+	}
+}
+
+// ServiceAccount sets the service account credentials used for authenticated internal calls.
+func ServiceAccount(sa config.ServiceAccount) Option {
+	return func(o *Options) {
+		o.ServiceAccount = sa
+	}
+}
+
+// TenantIDMappingEnabled sets the TenantIDMappingEnabled flag.
+// When true, the account resolver resolves the internal tenant ID from the external tenant ID
+// provided in the OIDC claims by calling the gateway's TenantAPI, instead of comparing directly.
+func TenantIDMappingEnabled(val bool) Option {
+	return func(o *Options) {
+		o.TenantIDMappingEnabled = val
 	}
 }
 

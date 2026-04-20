@@ -1,5 +1,13 @@
 package fileinfo
 
+// UserExtraInfo contains additional user info shared across collaborative
+// editing views, such as the user's avatar image and email.
+// https://sdk.collaboraonline.com/docs/advanced_integration.html#userextrainfo
+type UserExtraInfo struct {
+	Avatar string `json:"avatar,omitempty"`
+	Mail   string `json:"mail,omitempty"`
+}
+
 // Collabora fileInfo properties
 //
 // Collabora WOPI check file info specification:
@@ -36,6 +44,8 @@ type Collabora struct {
 
 	// If set to true, this will enable the insertion of images chosen from the WOPI storage. A UI_InsertGraphic postMessage will be send to the WOPI host to request the UI to select the file.
 	EnableInsertRemoteImage bool `json:"EnableInsertRemoteImage,omitempty"`
+	// If set to true, this will enable the insertion of remote files chosen from the WOPI storage. A UI_InsertFile postMessage will be sent to the WOPI host to request the UI to select the file. This enables multimedia insertion and document comparison features.
+	EnableInsertRemoteFile bool `json:"EnableInsertRemoteFile,omitempty"`
 	// If set to true, this will disable the insertion of image chosen from the local device. If EnableInsertRemoteImage is not set to true, then inserting images files is not possible.
 	DisableInsertLocalImage bool `json:"DisableInsertLocalImage,omitempty"`
 	// If set to true, hides the print option from the file menu bar in the UI.
@@ -62,7 +72,8 @@ type Collabora struct {
 	IsAnonymousUser bool `json:"IsAnonymousUser,omitempty"`
 
 	// JSON object that contains additional info about the user, namely the avatar image.
-	//UserExtraInfo -> requires definition, currently not used
+	// Shared among all views in collaborative editing sessions.
+	UserExtraInfo *UserExtraInfo `json:"UserExtraInfo,omitempty"`
 	// JSON object that contains additional info about the user, but unlike the UserExtraInfo it is not shared among the views in collaborative editing sessions.
 	//UserPrivateInfo -> requires definition, currently not used
 
@@ -111,6 +122,8 @@ func (cinfo *Collabora) SetProperties(props map[string]interface{}) {
 
 		case KeyEnableInsertRemoteImage:
 			cinfo.EnableInsertRemoteImage = value.(bool)
+		case KeyEnableInsertRemoteFile:
+			cinfo.EnableInsertRemoteFile = value.(bool)
 		case KeyDisableInsertLocalImage:
 			cinfo.DisableInsertLocalImage = value.(bool)
 		case KeyHidePrintOption:
@@ -131,7 +144,8 @@ func (cinfo *Collabora) SetProperties(props map[string]interface{}) {
 			cinfo.SaveAsPostmessage = value.(bool)
 		case KeyEnableOwnerTermination:
 			cinfo.EnableOwnerTermination = value.(bool)
-		//UserExtraInfo -> requires definition, currently not used
+		case KeyUserExtraInfo:
+			cinfo.UserExtraInfo = value.(*UserExtraInfo)
 		//UserPrivateInfo -> requires definition, currently not used
 		case KeyWatermarkText:
 			cinfo.WatermarkText = value.(string)

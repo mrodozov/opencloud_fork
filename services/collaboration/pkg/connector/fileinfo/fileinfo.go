@@ -103,6 +103,7 @@ const (
 	KeyTemplateSource    = "TemplateSource"
 
 	KeyEnableInsertRemoteImage = "EnableInsertRemoteImage"
+	KeyEnableInsertRemoteFile  = "EnableInsertRemoteFile"
 	KeyDisableInsertLocalImage = "DisableInsertLocalImage"
 	KeyHidePrintOption         = "HidePrintOption"
 	KeyHideSaveOption          = "HideSaveOption"
@@ -113,7 +114,7 @@ const (
 	KeyDownloadAsPostMessage   = "DownloadAsPostMessage"
 	KeySaveAsPostmessage       = "SaveAsPostmessage"
 	KeyEnableOwnerTermination  = "EnableOwnerTermination"
-	//KeyUserExtraInfo -> requires definition, currently not used
+	KeyUserExtraInfo = "UserExtraInfo"
 	//KeyUserPrivateInfo -> requires definition, currently not used
 	KeyWatermarkText = "WatermarkText"
 
